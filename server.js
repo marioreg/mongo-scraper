@@ -15,13 +15,20 @@ var PORT = 3000;
 var app = express();
 
 app.use(express.static("./public"));
+
 app.get('/', function (req, res) {
     res.render('index');
+});
+
+app.get('/some', function (req, res) {
+    res.render('some');
 });
 
 app.get('*', function (req, res) {
     res.render('404');
 });
+
+
 
 // Use morgan logger for logging requests
 app.use(logger("dev"));
